@@ -11,10 +11,20 @@ import SwiftyGif
 class ViewController: UIViewController {
     @IBOutlet weak var heart: UIImageView! {
         didSet {
-            heart.isUserInteractionEnabled = true
+            heart.isUserInteractionEnabled = false
             heart.image = UIImage(named: "favorite2")
+            // heart.isHidden = false
         }
     }
+    @IBOutlet weak var burstHeart: UIImageView! {
+        didSet {
+            burstHeart.isUserInteractionEnabled = false
+            // burstHeart.isHidden = true
+            // heart.image = UIImage(named: "favorite2")
+        }
+    }
+    
+    
     @IBOutlet weak var heartWidth: NSLayoutConstraint!
     @IBOutlet weak var tapArea: UIView!
     
@@ -36,30 +46,53 @@ class ViewController: UIViewController {
         if !isFavorited {
             do {
                 let gif = try UIImage(gifName: "favoriteAnimate.gif")
-                self.heart.setGifImage(gif, loopCount: 1)
+                self.burstHeart.setGifImage(gif, loopCount: 1)
+                self.heart.isHidden = true
+                self.burstHeart.isHidden = false
                 // self.heart.removeConstraint(heartWidth)
                 // self.heart.addConstraint(NSLayoutConstraint(item: self.heart!, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 50))
-                heartWidth.constant = 53
+                // heartWidth.constant = 53
                 isFavorited = true
             } catch {
                 print(error)
             }
         } else {
             self.heart.setImage(UIImage(named: "favorite2")!)
-            // heartWidth.constant = 30
-            // self.view.layoutIfNeeded()
-            // UIView.animate(withDuration: 1.0) {
-            //     self.heartWidth.constant = 23
+            self.heart.isHidden = false
+            self.burstHeart.isHidden = true
+            
+            print("HERE!")
+            
+            UIView.animate(withDuration: 0.1, animations: {
+                // self.heartWidth.constant = 100
+                // self.view.layoutIfNeeded()
+                // self.heart.transform = CGAffineTransform(scaleX: 3, y: 3)
+                self.heartWidth.constant = 35
+                self.view.layoutIfNeeded()
+            }) { (finished) in
+                UIView.animate(withDuration: 0.3, animations: {
+                    // self.heart.transform = CGAffineTransform.identity
+                    self.heartWidth.constant = 20
+                    self.view.layoutIfNeeded()
+                })
+            }
+            
+            // UIView.animate(withDuration: 5) {
+            //     self.heartWidth.constant = 40
             //     self.view.layoutIfNeeded()
             // }
-            UIView.animate(withDuration: 0.2) {
-                self.heartWidth.constant = 20
-                self.view.layoutIfNeeded()
-            }
+            
+            // UIView.animate(withDuration: 2) {
+            //     self.heartWidth.constant = 20
+            //     self.view.layoutIfNeeded()
+            // }
+            
+            
+            // UIView.animate(withDuration: 0.2) {
+            //     self.heartWidth.constant = 20
+            //     self.view.layoutIfNeeded()
+            // }
             isFavorited = false
         }
     }
-
-
 }
-

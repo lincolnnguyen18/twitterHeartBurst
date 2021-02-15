@@ -16,6 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICE-26-Sue">
+                                <rect key="frame" x="157" y="318" width="100" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5dD-BV-hRH">
+                                        <rect key="frame" x="22.666666666666657" y="22.666666666666686" width="55" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="Jf8-Se-4oV"/>
+                                            <constraint firstAttribute="width" secondItem="5dD-BV-hRH" secondAttribute="height" multiplier="1:1" id="iV0-rI-oli"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5dD-BV-hRH" firstAttribute="centerY" secondItem="ICE-26-Sue" secondAttribute="centerY" id="Hza-rW-N8u"/>
+                                    <constraint firstAttribute="width" secondItem="ICE-26-Sue" secondAttribute="height" multiplier="1:1" id="k7r-7K-iPC"/>
+                                    <constraint firstAttribute="width" constant="100" id="sfa-GC-oX2"/>
+                                    <constraint firstItem="5dD-BV-hRH" firstAttribute="centerX" secondItem="ICE-26-Sue" secondAttribute="centerX" id="u9v-cI-48I"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c9m-EF-jjb">
                                 <rect key="frame" x="197" y="358" width="20" height="20"/>
                                 <constraints>
@@ -23,13 +41,6 @@
                                     <constraint firstAttribute="width" secondItem="c9m-EF-jjb" secondAttribute="height" multiplier="1:1" id="Q1Q-bo-oRc"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICE-26-Sue">
-                                <rect key="frame" x="157" y="318" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ICE-26-Sue" secondAttribute="height" multiplier="1:1" id="k7r-7K-iPC"/>
-                                    <constraint firstAttribute="width" constant="100" id="sfa-GC-oX2"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -41,6 +52,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="burstHeart" destination="5dD-BV-hRH" id="mbc-nt-YCW"/>
                         <outlet property="heart" destination="c9m-EF-jjb" id="qID-Vy-OJD"/>
                         <outlet property="heartWidth" destination="Pci-uB-qbB" id="lP6-07-Pap"/>
                         <outlet property="tapArea" destination="ICE-26-Sue" id="KtR-j5-ufg"/>
@@ -48,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35" y="127"/>
+            <point key="canvasLocation" x="34.782608695652179" y="126.35869565217392"/>
         </scene>
     </scenes>
     <resources>
